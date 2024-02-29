@@ -13,20 +13,25 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: MM
-email:
-description: >- # this means to ignore newlines until "baseurl:"
+#locale                  : "de"
+title                   : Doku zu BsTd
+email                   : muellerh08@gmail.com
+description             : >- # this means to ignore newlines until "baseurl:"
   Write an awesome description for your new site here. You can edit this
   line in _config.yml. It will appear in your document head meta (for
   Google search results) and in your feed.xml site description.
-twitter_username: username
-github_username: username
-minimal_mistakes_skin: default
-search: true
-
+#twitter_username: username
+github_username         : muellerh08
+github                  : [metadata]
+#minimal_mistakes_skin   : default
+minimal_mistakes_skin   : dark
+search                  : true
+repository              : muellerh08/bs-mm-doc
+url                     : https://github.com/muellerh08/mm-github-starter
 # Build settings
-markdown: kramdown
-remote_theme: mmistakes/minimal-mistakes
+markdown                : kramdown
+#remote_theme            : mmistakes/minimal-mistakes
+remote_theme            : "root-project/minimal-mistakes@root-patches"
 # Outputting
 permalink: /:categories/:title/
 paginate: 5 # amount of posts to show
@@ -58,7 +63,7 @@ plugins:
   - jekyll-include-cache
 
 author:
-  name   : "First Lastname"
+  name   : "Heinz Müller"
   avatar : "/assets/images/bio-photo.jpg"
   bio    : "My awesome biography constrained to a sentence or two goes here."
   links:
