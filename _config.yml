@@ -29,9 +29,10 @@ search                  : true
 repository              : muellerh08/bs-mm-doc
 url                     : https://github.com/muellerh08/bs-mm-doc
 # Build settings
-markdown                : kramdown
-#remote_theme            : mmistakes/minimal-mistakes
+markdown: kramdown
+# remote_theme: mmistakes/minimal-mistakes
 remote_theme            : "root-project/minimal-mistakes@root-patches"
+
 # Outputting
 permalink: /:categories/:title/
 #paginate: 5 # amount of posts to show
@@ -62,23 +63,23 @@ plugins:
   - jemoji
   - jekyll-include-cache
 
-# author:
-#   name   : "Heinz Müller"
-#   avatar : "/assets/images/bio-photo.jpg"
-#   bio    : "My awesome biography constrained to a sentence or two goes here."
-#   links:
-#     - label: "Website"
-#       icon: "fas fa-fw fa-link"
-#       url: "https://"
-#     - label: "Twitter"
-#       icon: "fab fa-fw fa-twitter-square"
-#       url: "https://twitter.com/"
-#     - label: "GitHub"
-#       icon: "fab fa-fw fa-github"
-#       url: "https://github.com/"
-#     - label: "Instagram"
-#       icon: "fab fa-fw fa-instagram"
-#       url: "https://instagram.com/"
+author:
+  name   : "First Lastname"
+  avatar : "/assets/images/bio-photo.jpg"
+  bio    : "My awesome biography constrained to a sentence or two goes here."
+  links:
+    - label: "Website"
+      icon: "fas fa-fw fa-link"
+      url: "https://"
+    - label: "Twitter"
+      icon: "fab fa-fw fa-twitter-square"
+      url: "https://twitter.com/"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/"
+    - label: "Instagram"
+      icon: "fab fa-fw fa-instagram"
+      url: "https://instagram.com/"
 
 footer:
   links:
