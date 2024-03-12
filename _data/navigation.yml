@@ -1,10 +1,12 @@
 main:
-  - title: "Einleitung"
-    url: /
-  - title: "Projekte"
-    url: /Projekte/
+  - title: "Home"
+    url: /index/
+  - title: "Dokumentation"
+    url: /docs/install
+  - title: "Themenseiten"
+    url: /thems/thems
   - title: "Eingaben"
-    url: /Eingaben/
+    url: /incal/incal
   # - title: "Posts"
   #   url: /posts/
   # - title: "Categories"
@@ -17,9 +19,46 @@ main:
 doc_nav:
   - title: "Docu"
     children:
+      - title: "BsTd"
+        url: /docs/bstd
       - title: "Einleitung"
-        url: /
+        url: /docs/bstd-ein
+      - title: "SQL Server"
+        url: /docs/sql-server
+      - title: "Verschiedenes"
+        url: /docs/misc
+      - title: "Ursprüngliches ReadmeBp"
+        url: /docs/readme-bp
+      - title: "Installation"        
+        url: /docs/install/ 
       - title: "Projekte"
         url: /Projekte/
+thems:
+  - title: "Themenseiten"        
+    children:
+      - title: Themenseiten
+        url: thems/thems
+      - title: Cmake
+        url: thems/cmake
+      - title: Root
+        url: thems/root
+      - title: Jekyll
+        url: thems/jekyll
+      - title: C++ Klassen
+        url: thems/bp
+      - title: Root Klassen
+        url: thems/rt
+      - title: C++/CLI Klassen
+        url: thems/rm
+      - title: Qt Klassen
+        url: thems/tq
+      - title: LogBmBp
+        url: thems/bm-bp
+incal:         
+  - title: "Eingaben"
+    children:
       - title: "Eingaben"
-        url: /Eingaben/
+        url: /incal/incal/
+      - title: "Ik"
+        url: /incal/ik/
+  

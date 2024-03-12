@@ -1,0 +1,88 @@
+Ik
+/*
+Rechnungen mit Indikator Bp::IkTdS.
+Aufrufe:
+PsInt 'Ik\IkTdS,V1' '-debS 11' Ik\TdS\1\IkTdSV1 -D
+15.02.24: BlkBeg, BlkEnd siehe Bp::IoMgr::SelBlks()
+*/
+//Vb=Bp::IkTdS
+// Indikator-Definition
+String=s3=IkTdS 1 14 3
+BlkBeg=Bk0 // Kann mit Bk0 weiter unten eingesetzt werden
+// Definitionen für V2
+Def=0,s3,0,kHist,kYellow+2,4,MA
+Def=0,s3,0,kHist,kRed,2,Obergrenze
+Def=0,s3,0,kHist,kBlue,3,Untergrenze
+Def=0,s3,0,kHist,kGreen+2,0,SuperTrend
+Def=0,s3,1,kHist,kYellow+2,5,Mom
+Def=0,IkQuo 0 0,1,kLine,kBlack
+Def=0,s3,2,kHist,kBlue,1,Trd3
+Def=0,IkQuo 0 0,2,kLine,kBlack
+BlkEnd
+/////////////////////////////////////////////////////////////////////
+FileVar=V1
+BaCo=Wiso.DAX  // Wertpapier
+// Eingabe für Mult-Manager
+ParM=-20000,20171231,0,kOri,kMult
+// Indikator-Definition
+String=s1=IkTdS 0 14 1
+String=s2=IkTdS 0 14 2
+String=s3=IkTdS 0 14 3
+// Chart-Definitionen
+Def=0,Kurse,0,kCandle,0
+Def=0,s3,0,kHist,kRed,2,Obergrenze
+Def=0,s3,0,kHist,kBlue,3,Untergrenze
+Def=0,s3,0,kHist,kGreen+2,0,s3=SuperTrend
+
+Def=0,s3,1,kHist,kBlue,1,Trd3
+Def=0,IkQuo 0 0,1,kLine,kBlack
+//////////////////////////////////////////////////////////////////
+FileVar=V11
+// Wertpapier
+//BaCo=Wiso.T796421
+//BaCo=Wiso.T933677
+BaCo=Wiso.DAX
+// Eingabe für Mult-Manager
+ParM=-20000,20171231,0,kOri,kMult
+// Indikator-Definition
+String=s3=IkTdS 1 14 3 
+String=s30=IkTdS 0 14 3
+// Chart-Definitionen
+Def=0,Kurse,0,kCandle,kBlack
+//Def=0,s3,0,kHist,kRed,2,Obergrenze
+//Def=0,s3,0,kHist,kBlue,3,Untergrenze
+Def=0,s3,0,kHist,kGreen+2,0,s3=SuperTrend
+Def=0,s3,0,kHist,kYellow+2,4,MA
+Def=0,s30,0,kHist,kCyan,0,s3=SuperTrend
+
+Def=0,s3,1,kHist,kGreen+2,1,Trd3
+Def=0,s30,1,kHist,kCyan,1,Trd3
+Def=0,IkQuo 0 0,1,kLine,kBlack
+//////////////////////////////////////////////////////////////////
+FileVar=V2
+BaCo=Wiso.T847428;
+ParM=-10000,20200630,0,kOri,kMult
+Def=0,Kurse,0,kDots,kBlack;//Blk=Bk0
+Def=0,s3,0,kHist,kYellow+2,4,MA
+Def=0,s3,0,kHist,kRed,2,Obergrenze
+Def=0,s3,0,kHist,kBlue,3,Untergrenze
+Def=0,s3,0,kHist,kGreen+2,0,SuperTrend
+Def=0,s3,1,kHist,kYellow+2,5,Mom
+Def=0,IkQuo 0 0,1,kLine,kBlack
+Def=0,s3,2,kHist,kBlue,1,Trd3
+Def=0,IkQuo 0 0,2,kLine,kBlack
+//////////////////////////////////////////////////////////////////
+FileVar=V2W
+// Wertpapier
+BaCo=Wiso.T847428#W
+// Eingabe für Mult-Manager
+ParM=-20000,20181130,0,kOri
+Def=0,Kurse,0,kDots,kBlack
+//////////////////////////////////////////////////////////////////
+FileVar=V2W1
+// Wertpapier
+BaCo=Wiso.T847428#W
+// Eingabe für Mult-Manager
+ParM=-20000,20181130,0,kOri,kMult
+//ParM=0,0,0,kOri,kMult
+Def=0,Kurse,0,kCandle,kBlack

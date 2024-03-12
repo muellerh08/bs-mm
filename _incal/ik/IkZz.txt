@@ -1,0 +1,86 @@
+Ik
+/*
+10.04.22: Die Variante IkZz fVar=1 stürzt ab =>vorläufig nicht verwenden!!!
+
+Aufrufe:
+Int.ps1 'Ik\IkZz,V1' '-debS 11' Ik\Zz\1\IkZzV1 -D
+*/
+// Einige Strings
+//Vb=Bp::IkZz
+String=sQuo=IkQuo 0 0
+String=sA0=IkZz 0 1.5:ATR 14
+String=sF0=IkZz 0 3 1:STDDEV 14 1
+//Prm=$KuA=kCandle
+BlkBeg=Bk0
+// Indikator-Definition
+//String=sZz0=IkZz 1 3 1:+sSd0
+//String=sZz0=IkZz 0 3 1:+sSd0
+// Chart-Definitionen
+Def=0,Kurse,0,$B0,kBlack
+Def=0,$B1,0,kHist,kBlue,0,GD
+Def=0,$B1,0,kLine,kCyan+1,5,Int
+Def=0,$B1,0,kLine,kCyan,3,ValL
+Def=0,$B1,0,kLine,kCyan+2,4,ValH
+
+Def=0,$B1,1,kHist,kBlue,1,Mom
+Def=0,sQuo,1,kLine,kBlack
+
+Def=0,$B1,2,kHist,kBlue,2,trend123
+Def=0,sQuo,2,kLine,kBlack
+BlkEnd
+
+//////////////////////////////////////////////////////////////////
+FileVar=V1
+BaCo=Wiso.DAX;ParM=-10000,20161231,0,kOri,kMult;Blk=Bk0,kCandle,sA0
+/////////////////////////////////////////////////////////////////////////////////
+FileVar=V2
+BaCo=Wiso.T847428;ParM=-10000,20201231,0,kOri,kMult;Blk=Bk0,kDots,sF0
+//////////////////////////////////////////////////////////////////
+FileVar=V2W
+// Wertpapier
+BaCo=Wiso.T847428#W
+// Eingabe für Mult-Manager
+ParM=-50000,20171231,70,kOri,kMult
+Def=0,Kurse,0,kCandle,kBlack
+/////////////////////////////////////////////////////////////////////////////////
+FileVar=V21
+BaCo=Wiso.T847428
+// Eingabe für Mult-Manager
+ParM=-10000,20171231,0,kOri,kMult
+//////////////////////////////////////////////////////////////////
+FileVar=V2W1
+BaCo=Wiso.T847428#W
+// Eingabe für Mult-Manager
+ParM=-50000,20171231,0,kOri,kMult
+Def=0,Kurse,0,kCandle,kBlack
+/////////////////////////////////////////////////////////////////////////////////
+FileVar=V3
+// Wertpapier
+BaCo=Wiso.T933677
+// Eingabe für Mult-Manager
+//ParM=-20000,20151231,750,kOri,kSing
+ParM=-10000,20161231,200,kOri,kMult
+// Indikator-Definition
+//String=sAtr=ATR 14
+String=sSd0=STDDEV 14 1
+String=sSd1=STDDEV 34 1
+String=sZz0=IkZz 1 3 1;+sSd0
+String=sZz1=IkZz 1 3 1;+sSd1 
+String=sZz2=IkZz 1 4 1;+sSd0
+String=sQuo=IkQuo 0 0
+// Chart-Definitionen
+Def=0,Kurse,0,kDots,kBlack
+Def=0,sZz0,0,kHist,kBlue,0,GD
+/*
+Def=0,sZz0,0,kLine,kCyan+1,5,Int
+Def=0,sZz0,0,kLine,kCyan,3,ValL
+Def=0,sZz0,0,kLine,kCyan+2,4,ValH
+
+Def=0,sZz0,1,kHist,kBlue,1,Mom
+Def=0,sQuo,1,kLine,kBlack
+
+Def=0,sZz0,2,kHist,kBlue,2,trend123
+Def=0,sQuo,2,kLine,kBlack
+*/
+/////////////////////////////////////////////////////////////////////////////////
+

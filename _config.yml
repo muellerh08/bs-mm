@@ -14,7 +14,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 #locale                  : "de"
-title                   : Doku zu BsTd
+title                   : Backtesting
 email                   : muellerh08@gmail.com
 description             : >- # this means to ignore newlines until "baseurl:"
   Write an awesome description for your new site here. You can edit this
@@ -41,6 +41,9 @@ timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 include:
   - _pages
+  - _docs
+  - _incal
+  - thems
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
@@ -109,6 +112,20 @@ defaults:
   - scope:
       path: "_pages"
       type: pages
+    values:
+      layout: single
+      author_profile: false
+# _docs
+  - scope:
+      path: "_docs"
+      type: docs
+    values:
+      layout: single
+      author_profile: false
+# _incal
+  - scope:
+      path: "_incal"
+      type: docs
     values:
       layout: single
       author_profile: false
