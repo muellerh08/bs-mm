@@ -34,7 +34,7 @@ IkTdS.md:| PsInt 'Ik\\IkTdS,V2' '-dS 11' Ik\\TdS\\2\\IkTdSV2 BTD -->
 - 05.03.24: Umstellung auf bs-mm-doc mit Macro
 [IkTdS.C](./ik/IkTdS.C) oder Text-file
 [IkTdS.txt](./ik/IkTdS.txt) oder
-[IkTdS.C](file:///C:/Users/User/BsTd/BsWb/bs-mm-doc/incal/ik/IkTdS.C)
+[IkTdS.C](file:///C:/Users/User/BsTd/BsWb/bs-mm/incal/ik/IkTdS.C)
  
 <!-- [IkTdS.C](C:/Users/User/BsTd/BsWb/bs-jtd/coll/_ik/IkTdS.C) und
 [IkTdS.txt](C:/Users/User/BsTd/BsWb/bs-jtd/coll/_ik/IkTdS.txt), bzw. 
