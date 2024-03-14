@@ -28,22 +28,26 @@ IkTdS.md, Dax,RtM| PsInt 'Ik\\IkTdS,V1' '-dS 11' Ik\\TdS\\1\\IkTdSV1T BT
 IkTdS.md, Dax, mit Glättung| PsInt 'Ik\\IkTdS,V11' '-dS 11' Ik\\TdS\\1\\IkTdSV11 BTD
 IkTdS.md:| PsInt 'Ik\\IkTdS,V2' '-dS 11' Ik\\TdS\\2\\IkTdSV2 BTD -->
 
-- 14.02.24: Umstellung auf flexiblere Dateneingabe mit Makro 
+- 14.02.24: Umstellung auf flexiblere Dateneingabe mit Makro
 [IkTdS.C](file:///C:/Users/User/BsTd/Src/Work/In/Ik/IkTdS.C) oder Text-File
 [IkTdS.txt](file:///C:/Users/User/BsTd/Src/Work/In/Ik/IkTdS.txt)
-- 05.03.24: Umstellung auf bs-jtd: 
-<!-- 
-[IkTdS.C](C:/Users/User/BsTd/BsWb/bs-jtd/coll/_ik/IkTdS.C) und
+- 05.03.24: Umstellung auf bs-mm-doc mit Macro
+[IkTdS.C](./ik/IkTdS.C) oder Text-file
+[IkTdS.txt](./ik/IkTdS.txt) oder
+[IkTdS.C](file:///C:/Users/User/BsTd/BsWb/bs-mm-doc/incal/ik/IkTdS.C)
+ 
+<!-- [IkTdS.C](C:/Users/User/BsTd/BsWb/bs-jtd/coll/_ik/IkTdS.C) und
 [IkTdS.txt](C:/Users/User/BsTd/BsWb/bs-jtd/coll/_ik/IkTdS.txt), bzw. 
 [IkTdS_C.txt](/ik/IkTdS_C.txt) und
 [IkTdS.txt](/ik/IkTdS.txt) sowie
- -->
-[IkTdS_C.txt](./ik/IkTdS_C.txt) und
-[IkTdS.txt](./ik/IkTdS.txt) 
-<!-- und
-[IkTdS_C_txt](/ik/IkTdS_C.txt) -->
-
-<!-- 
+und
+[IkTdS.C](/ik/IkTdS.C)
+und
+{% for fc in site.static_files %}
+  {% if fc.path contains 'incal/ik/IkTdS.C' %}
+    {{ fc.name }}
+  {% endif %}
+{% endfor %}
 [IkTdS.txt](../../coll/_ik/IkTdS.txt)
 [IkTdS.txt](http://localhost:4000/coll/_inda/IkTdS.txt)
 [IkTdS](IkTdS.md)
