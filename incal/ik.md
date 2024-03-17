@@ -1,9 +1,8 @@
 ---
-title: "Ik"
+title: "Ik: Tests zu Indikatoren"
 layout: single
-permalink: /incal/ik/
+permalink: incal/ik
 author_profile: false
-comments: true
 sidebar:
   nav: incal
 toc: true  

@@ -75,6 +75,8 @@ toc: true
 
 - 01.03.24: Neue Seiten anlegen siehe Step 2: add pages at https://zenglix.github.io/personal_website/
 - 08.03.24: bs-mm-doc von ...\BsTd\BsDoc\mm-github-starter\ nach ...\BsTd\BsWb\ verschoben.
+- 14.03.24: Umbenennung bs-mm-doc in bs-mm. Ging ohne Schwierigkeiten mittels
+[Renaming a git repository, local and distant](https://stackoverflow.com/questions/62591848/renaming-a-git-repository-local-and-distant)
 
 ## Protokolle
 

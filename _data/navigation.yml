@@ -1,6 +1,6 @@
 main:
   - title: "Home"
-    url: /index/
+    url: index
   - title: "Dokumentation"
     url: /docs/install
   - title: "Themenseiten"
@@ -58,7 +58,9 @@ incal:
   - title: "Eingaben"
     children:
       - title: "Eingaben"
-        url: /incal/incal/
-      - title: "Ik"
-        url: /incal/ik/
+        url: /incal/incal
+      - title: "DaBa: Handling Datenbasen"
+        url: incal/daba
+      - title: "Ik: Tests zu Indikatoren"
+        url: incal/ik
   
