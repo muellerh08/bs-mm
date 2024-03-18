@@ -1,6 +1,6 @@
 ---
 layout: single
-title: Einleitung
+title: Einleitung zu BsTd
 permalink: /docs/bstd-ein
 sidebar:
   nav: doc_nav
@@ -17,9 +17,10 @@ toc: true
 {:toc}
 </details> -->
 
-# Einleitung
+## Einleitung
 
 Mit BsTd wird in erster Linie das Backtesting von Handelssystemen durchgeführt.
+
 - 25.04.22: Möglichkeiten zur Strukturierung sind in den Artikeln
 [Do section names have to be globally unique in Doxygen?](https://stackoverflow.com/questions/13698699/do-section-names-have-to-be-globally-unique-in-doxygen)
 und [The Structure of Doxygen Documentation](https://alesnosek.com/blog/2015/06/21/the-structure-of-doxygen-documentation/)

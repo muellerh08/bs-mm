@@ -1,13 +1,13 @@
 ---
-title: "Installation"
+title: "Minimal-Mistakes"
 layout: single
-permalink: /docs/install/
+permalink: /docs/min-mis/
 comments: true
 sidebar:
   nav: doc_nav
 toc: true  
 ---
-# Readme zur Installation
+## Theme-Installation
 
 - 28.02.24: Der Hinweis auf dieses Projekt ist vom Ende des Abschnittes [Remote theme method](
   https://github.com/root-project/minimal-mistakes?tab=readme-ov-file#remote-theme-method)

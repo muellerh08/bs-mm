@@ -16,37 +16,35 @@ toc: true
 {:toc}
 </details> -->
 
-<!-- \section BsTd20 SQL Server -->
-# SQL Server
+## Einleitung
 
-- 15.04.18: In [Installation](#sql-server---installation) und [Kopieren/Verschieben von Datenbanken](#sql-server---kopierenverschieben-von-datenbanken)werden zunächst alle bisherigen Einträge aus [Ursprüngliches ReadmeBp](BsTd99) und OneNote zusammengefasst, die sich entweder auf
+- 15.04.18: In [Installation](#installation) und [Kopieren/Verschieben von Datenbanken](#kopierenverschieben-von-datenbanken)werden zunächst alle bisherigen Einträge aus [Ursprüngliches ReadmeBp](./readme-bp#readmebp) und OneNote zusammengefasst, die sich entweder auf
 Installationsfragen oder das Kopieren/Verschieben von Datenbanken beziehen.
 - 18.04.2018: Zur Zeit frage ich mich (wieder einmal), ob ich mich bezüglich 
-Sql Server von Root Unabhängig machen sollte. So ist z.B. in TODBCServer GetErrorMsg()
+Sql Server von Root unabhängig machen sollte. So ist z.B. in TODBCServer GetErrorMsg()
 nicht implementiert. Das war bei den jüngsten Schwierigkeiten mit dem Datentyp
 'smalldatetime' recht unangenehm, weil ich zunächst überhaupt nichts über die
 Absturzursache wußte. Erst beim Kopieren (und Abarbeiten) des fraglichen Befehls in
 SSMS bekam ich eine ordentliche Fehlerbeschreibung. Also dürfte das doch auch vom
 Programm aus möglich sein. Vielleicht sollte ich ja erst einmal eigene Klassen von den
 entsprechenden Root-Klassen ableiten als Einstieg in die Problematik. Zunächst
-ein hierher verschobener Eintrag aus [Ursprüngliches ReadmeBp](BsTd99):
+ein hierher verschobener Eintrag aus [Ursprüngliches ReadmeBp](./readme-bp#readmebp):
 - "03.03.16: Auf der Suche nach dem Memory Leak wollte ich die SQL-Klassen überprüfen,
-  indem ich abgeleitete Klassen erzeugen und dort die Erzeugung und Vernichtung
-	mit Bp::ObjCount() zählen wollte. Ich bin schon an BtODBCRow : public TODBCRow
-	gescheitert, weil beim Linken die TODBCRow-Methoden nicht gefunden wurden. 
-	Vielleicht liegt es ja an dem Plugin-Mechanismus, mit dem diese Klassen in das
-	Programm eingefügt werden (und den ich nicht verstehe). Als Alternative zu den
-	Root-Sql Klassen könnte vielleicht die SQLAPI++ Library (kostet 249$)
-	(http://www.sqlapi.com/index.html) oder der SQL Native Client: 
-	http://msdn.microsoft.com/en-us/library/ms130904.aspx, wie in
-  https://blogs.msdn.microsoft.com/jimblizzard/2014/06/03/c-and-sql-server/
-	diskutiert. Der Artikel 'Data Access in Visual C++',
-	https://msdn.microsoft.com/en-us/library/7wtdsdkh.aspx, könnte ein weiterer
-	Ausgangspunkt für mögliche Änderungen sein. Beispielcode gibt es hier:
-	http://blog.jamesrossiter.co.uk/2011/01/26/connecting-to-sql-server-from-c/ und
-	http://www.tidytutorials.com/2009/08/connecting-to-sql-server-using-c-odbc.html
-	Zusammen mit dem Quellcode der Root-TODBCxxx Klassen könnte man daraus eigenen
-	Code basteln und verwenden (wenn es denn unbedingt nötig sein sollte)."
+indem ich abgeleitete Klassen erzeugen und dort die Erzeugung und Vernichtung
+mit Bp::ObjCount() zählen wollte. Ich bin schon an BtODBCRow : public TODBCRow
+gescheitert, weil beim Linken die TODBCRow-Methoden nicht gefunden wurden. 
+Vielleicht liegt es ja an dem Plugin-Mechanismus, mit dem diese Klassen in das
+Programm eingefügt werden (und den ich nicht verstehe). Als Alternative zu den
+Root-Sql Klassen könnte vielleicht die 
+[SQLAPI++ Library](http://www.sqlapi.com/index.html) (kostet 249$)
+oder der [SQL Native Client](http://msdn.microsoft.com/en-us/library/ms130904.aspx), wie in
+https://blogs.msdn.microsoft.com/jimblizzard/2014/06/03/c-and-sql-server/
+diskutiert. Der Artikel [Data Access in Visual C++](https://msdn.microsoft.com/en-us/library/7wtdsdkh.aspx), könnte ein weiterer
+Ausgangspunkt für mögliche Änderungen sein. Beispielcode gibt es hier:
+http://blog.jamesrossiter.co.uk/2011/01/26/connecting-to-sql-server-from-c/ und
+http://www.tidytutorials.com/2009/08/connecting-to-sql-server-using-c-odbc.html.
+Zusammen mit dem Quellcode der Root-TODBCxxx Klassen könnte man daraus eigenen
+Code basteln und verwenden (wenn es denn unbedingt nötig sein sollte)."
 - BtODBCRow : public TODBCRow benötigt die Bibliothek libRODBC, dann funktioniert
 auch das Linken.
 - 19.04.2018: Bisher habe ich SqlServer Object mittels 
@@ -61,7 +59,7 @@ kann das Pluin durch einfaches Erzeugen via
 [SQLShack](https://www.sqlshack.com/), sogar mit einer Suchfunktion.
 	
 <!-- \subsection BsTd21 Sql Server - Installation -->
-## Sql Server - Installation
+## Installation
 
 - 09.02.16: TSQLServer: Hier muss ein Plugin installiert werden. Das geschieht durch den einmaligen Aufruf von 
 - "root_v5.34.34\\Release\\etc\\plugins\\TSQLServer\\P050_TODBCServer.C" 
@@ -75,6 +73,7 @@ P050_TODBCServer.C (gPluginMgr->AddHandler(...); ...) direkt in BpSqlMgr
 aufzurufen, oder gleich die verwendeten Programme TODBCResult, TODBCRow, 
 TODBCServer und (TODBCStatement) aus	root\\sql\\odbc (, wobei TODBCStatement nicht 
 zu funktionieren scheint???) in BpLibN zu kopieren.
+
 - 10.02.16: Win8-12 ist inzwischen repariert und soll hauptsächlich für längere
 Rechnungen verwendet werden. Der Quellcode und die Datenbanken auf Ac16 sollen
 dabei verwendet werden. Beim Zugriff auf AC16\\SQLEX von Win8-12 aus gab es 
@@ -112,7 +111,7 @@ aufrufen. Dort unter Datei->Öffnen, im Fenster 'Öffnen' unter Dateiname in Dro
 beschriebene Prozedur über 'mmc.exe' ist also nicht nötig!
 - Microsoft bietet auch einen Data Migration Assistant:
 <https://blogs.msdn.microsoft.com/datamigration/2016/10/25/data-migration-assistant-how-to-migrate-your-on-premises-sql-server-instance-to-modern-sql-server-platforms/> 
-<br> Mir ist aber nicht klar, wofür der eigentlich gut ist. Könnten da Daten zwischen 
+Mir ist aber nicht klar, wofür der eigentlich gut ist. Könnten da Daten zwischen 
 Servern übertragen werden???
 - 09.03.17: Das ist der gleiche Fehler der auch im Microsoft Sql Server Management 
 Studio (SSMS) auftritt. Zunächst habe ich überprüft, dass die Einstellungen im SSCM 
@@ -123,7 +122,8 @@ behoben werden konnten. Entscheidend war das Abändern von 'Log On As' im Menupu
 SQL Server Services auf 'Build-in account' und dort auf  'Network Service', und 
 unter 'Protocols for SQLEX' muss 'TCP/IP' Enabled werden." Damit hatte es damals 
 funktioniert.
-\n Das hat zunächst nichts gebracht. In 2016 hatte ich mich noch auf Windows mit 
+
+Das hat zunächst nichts gebracht. In 2016 hatte ich mich noch auf Windows mit 
 einem lokalen Konto angemeldet, inzwischen aber mit dem Microsoft Konto. Das habe ich 
 rückgängig gemacht, und alles funktioniert offenbar, zumindest was das SSMS betrifft.
 Aber leider nicht der DMA. Dort werden Fehler in allen Datenbasen angezeigt, mit denen
@@ -140,7 +140,7 @@ ansehen!?
 SSMS, obwohl ich nichts (zumindest soweit ich mich erinnern kann) getan habe.
 
 <!-- \subsection BsTd22 Sql Server - Kopieren/Verschieben von Datenbanken -->
-## Sql Server - Kopieren/Verschieben von Datenbanken
+## Kopieren/Verschieben von Datenbanken
 
 - 24.02.13: Mit dem Hilfsprogramm bcp können große Datenmengen importiert und
 exportiert werden. In einem ersten Schritt muß offenbar eine Format-Datei
@@ -211,6 +211,7 @@ C:\\Program Files\\Microsoft SQL Server\\MSSQL14.SQL17\\MSSQL\\Backup kopiert ha
 
 <!-- \subsection BsTd23 Sql Server 2017 - Installation -->
 ## Sql Server 2017 - Installation
+
 - 16.05.18: Wegen des begrenzten Speicherplatzes auf Laufwerk c: von Ac16 soll auf e:
 installiert werden. Zunächst eine Link-Sammlung, die hoffentlich hilfreich sein wird:
 \n http://www.kodyaz.com/sql-server-2017/install-sql-server-2017.aspx
@@ -399,10 +400,10 @@ erspart geblieben!!!
 
 <!-- \subsection BsTd24 Sql Server 2019 - Installation -->
 ## Sql Server 2019 - Installation
+
 - 01.07.20: Update von SQL Server 2017 auf 2019 durchgeführt. Da es sich diesmal
 nicht um eine Neuinstallation, sondern ein Upgrade handelte, bin ich nach folgenden
-Artikel vorgegangen: [How to Upgrade Microsoft SQL Server the Right Way]
-(https://thebackroomtech.com/2019/03/28/how-to-upgrade-microsoft-sql-server-the-right-way/).
+Artikel vorgegangen: [How to Upgrade Microsoft SQL Server the Right Way](https://thebackroomtech.com/2019/03/28/how-to-upgrade-microsoft-sql-server-the-right-way/).
 Das hat auch ganz gut funktioniert. Neu dabei war die Verwendung des 
 Data Migration Assistant.
 - Die Bezeichnung der Server Instanz, SQL17, ist allerdings unverändert. Eine
@@ -412,47 +413,47 @@ file:///C:/Program%20Files/Microsoft%20SQL%20Server/150/Setup%20Bootstrap/Log/20
 - 17.08.20: Der Zugriff vom Programm BsTd auf Ac16 funktioniert der Zugriff auf 
 ME19\\SQL17 nicht mehr, obwohl von SSMS auf AC16 aus der Zufriff mit SQL Server 
 Authentication, Login: sa, Passwort sa möglich ist.
-\n Bisheriger Connection String in BpSqlMgr war: 
-\n     string fConStr="odbcd://Driver={SQL Server};Server="+"ME19\\SQL17;
-\n Das funktionierte aber nur von Me19 aus, nicht von Ac16. Mit
-\n     string fConStr="odbcd://Driver={SQL Server};Server="+"ME19\\SQL17
-\n                    +";Uid=sa;Pwd=sa"+";Trusted_Connection=no;";
+
+````text
+Bisheriger Connection String in BpSqlMgr war: 
+     string fConStr="odbcd://Driver={SQL Server};Server="+"ME19\\SQL17;
+ Das funktionierte aber nur von Me19 aus, nicht von Ac16. Mit
+     string fConStr="odbcd://Driver={SQL Server};Server="+"ME19\\SQL17
+                    +";Uid=sa;Pwd=sa"+";Trusted_Connection=no;";
 Geht es für beide Rechner.
+````
 
 <!-- \subsection BsTdFt Sql Server - FileTable -->
 ## Sql Server - FileTable
-- 23.07.20: Um FileTables verwenden zu können sind einige "Vorarbeiten" zu 
-erledigen, die in [Enable the Prerequisites for FileTable]
-(https://docs.microsoft.com/en-us/sql/relational-databases/blob/enable-the-prerequisites-for-filetable?view=sql-server-ver15)
+
+- 23.07.20: Um FileTables verwenden zu können sind einige "Vorarbeiten" zu
+erledigen, die in [Enable the Prerequisites for FileTable](https://docs.microsoft.com/en-us/sql/relational-databases/blob/enable-the-prerequisites-for-filetable?view=sql-server-ver15)
 beschrieben sind. Die Verwendung ist dann in den dort folgenden Kapiteln
 dargelegt.
 
 <!-- \subsection BsTdBak SSMS und Backup -->
 ## SSMS und Backup
+
 - 11.07.20: Funktioniert gut mit SSMS. Ich habe das File 
 D:\\HmD\\Backup\\SQL\\SqlBackup.bak als Backup Device deklariert, wie in 
-[Define a Logical Backup Device for a Disk File (SQL Server)]
-(https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/define-a-logical-backup-device-for-a-disk-file-sql-server?view=sql-server-ver15)
+[Define a Logical Backup Device for a Disk File (SQL Server)](https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/define-a-logical-backup-device-for-a-disk-file-sql-server?view=sql-server-ver15)
 beschrieben. Der Default-Speicherort befindet sich auf dem gleichen Disk wie die
 Datenbasis, und der 2. Disk hat jede Menge freien Speicherplatz.
 Das erleichtert dann das Erstellen des eigentlichen Bachups, wie in
-[Quickstart: Backup and restore a SQL Server database on-premises]
-(https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/quickstart-backup-restore-database?view=sql-server-ver15),
+[Quickstart: Backup and restore a SQL Server database on-premises](https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/quickstart-backup-restore-database?view=sql-server-ver15),
 beschrieben. Den Inhalt des Backups kann man sich ansehen, siehe
-[View the contents of a backup tape or file (SQL Server)]
-(https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/view-the-contents-of-a-backup-tape-or-file-sql-server?view=sql-server-ver15).
+[View the contents of a backup tape or file (SQL Server)](https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/view-the-contents-of-a-backup-tape-or-file-sql-server?view=sql-server-ver15).
 Das Restoren hab ich noch nicht probiert.
-- Die [10 SSMS Tips and Tricks to boost your Productivity]
-(https://www.sqlshack.com/10-ssms-tips-and-tricks-to-boost-your-productivity/)
+- Die [10 SSMS Tips and Tricks to boost your Productivity](https://www.sqlshack.com/10-ssms-tips-and-tricks-to-boost-your-productivity/)
 und Links darin dürften ganz nützlich sein für das Arbeiten mit SSMS.
 
 <!-- \section BsTdSR SQL Server und Root -->
 ## SQL Server und Root
+
 - 28.03.19: Mir schwebt eine "graphische Auswertung" der SQL Tabellen mit den
 Backtest Ergebnissen mittels TTree vor. Ein solches ""SQL I/O" package is currently 
 under development.", wie in "class TSQLFile: public TFile" nachzulesen ist. Dazu
-gibt es auch einen Artikel [ROOT I/O FOR SQL DATABASES]
-(http://web-docs.gsi.de/~go4/go4gside/CHEP2006/sqlio_paper.pdf).
+gibt es auch einen Artikel [ROOT I/O FOR SQL DATABASES](http://web-docs.gsi.de/~go4/go4gside/CHEP2006/sqlio_paper.pdf).
 - 01.04.19: Die dafür vorgesehene Klasse ist TTreeSQL. Dort sind viele Methoden
 noch nicht implementiert. Ich habe es trotzdem versucht, und bin (vorläufig) am
 "Füllen" des erzeugten Objektes gescheitert (siehe Klasse RtTreeSQL). Mit 
@@ -468,164 +469,17 @@ dürfte es sinnvoller sein, kleinere TFile's zu erzeugen, die genau zu einer Zei
 in den SQL-Tabellen gehören. Diese TFile's müssten dann beim Updaten einer Zeile 
 durch das dabei erzeugten neue TFile ersetzt werden. Zum Speichern solcher Objekte
 gibt es verschiedene Möglichkeiten: 
-[How Should We Store Images And Blob Files In SQL Server]
-(https://www.c-sharpcorner.com/article/how-should-we-store-images-and-blob-files-in-sql-server/),
-oder [Storing files in SQL Server]
-(https://stackoverflow.com/questions/13420305/storing-files-in-sql-server) mit
-Referenzen darin, oder [Storing Files in SQL Database Using FILESTREAM – Part 1]
-(https://codingsight.com/storing-files-in-sql-database-using-filestream-part1/).
+[How Should We Store Images And Blob Files In SQL Server](https://www.c-sharpcorner.com/article/how-should-we-store-images-and-blob-files-in-sql-server/),
+oder [Storing files in SQL Server](https://stackoverflow.com/questions/13420305/storing-files-in-sql-server) mit
+Referenzen darin, oder [Storing Files in SQL Database Using FILESTREAM – Part 1](https://codingsight.com/storing-files-in-sql-database-using-filestream-part1/).
 Die günstigste Lösung scheint mir im Moment das Speichern der
 TTree's in einer separaten Tabelle zu sein, falls die TTree's nicht zu groß werden.
 
 <!-- \section BsTdSCp Sql Server - Client Programmierung native C++ -->
-## Sql Server - Client Programmierung native C++
-\n 08.07.21: BpSqlMgr ist "Root-basiert", BqSqlMgr ist "Qt-basiert", wünschenswert 
-wäre die direkte Verwendung von [SQL Server Native Client Programming]
-(https://docs.microsoft.com/en-us/sql/relational-databases/native-client/sql-server-native-client-programming?view=sql-server-ver15#:~:text=SQL%20Server%20Native%20Client%20is%20a%20stand-alone%20data,ODBC%20driver%20into%20one%20native%20dynamic-link%20library%20%28DLL%29.)
+## Client Programmierung native C++
+
+08.07.21: BpSqlMgr ist "Root-basiert", BqSqlMgr ist "Qt-basiert", wünschenswert
+wäre die direkte Verwendung von [SQL Server Native Client Programming](https://docs.microsoft.com/en-us/sql/relational-databases/native-client/sql-server-native-client-programming?view=sql-server-ver15#:~:text=SQL%20Server%20Native%20Client%20is%20a%20stand-alone%20data,ODBC%20driver%20into%20one%20native%20dynamic-link%20library%20%28DLL%29.)
 ohne obige Zwischenschritte. Ein Beispielprogramm
-[C++ ODBC example application accesses a SQL database]
-(https://docs.microsoft.com/en-us/sql/connect/odbc/cpp-code-example-app-connect-access-sql-db?view=sql-server-ver15)
-macht allerdings einen nicht sehr einladenden Eindruck.
-
-
-<!-- \section BsTdVs Visual Studio -->
-## Visual Studio
-- 07.02.19: Export der Settings auf Ac16: 
-\verbatim "Your settings were successfully exported to 
-C:\Users\muell\AppData\Local\Microsoft\VisualStudio\16.0_95aa5a98\Settings\
-Exported-2019-02-07.vssettings." \endverbatim
-- 27.03.19: Mit VS 2019 funktionierte zunächst Intellisense und Call Hierarchy nicht.
-Die Lösung bestand im Löschen von ...\\BSTDB\.vs und Neustart von VS, 
-[siehe Antwort von Minding]
-(https://stackoverflow.com/questions/51254108/visual-studio-2017-intellisense-is-not-working)
-
-<!-- \subsection BsTdRt5 Root5 und Visual Studio -->
-### Root5 und Visual Studio
-- 10.03.21: Beginnend mit VS 2019 Version 16.9.0 treten plötzlich wieder sehr viele 
-neue Fehler auf in der Art
-\n \verbatim
-4>G__BpLib.cxx
-4>C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29910\include\utility(604,1): error C2440: '=': cannot convert from '_Other' to '_Ty'
-4>        with
-4>        [
-4>            _Other=int
-4>        ]
-4>        and
-4>        [
-4>            _Ty=std::_Facet_base *
-4>        ]
-4>C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29910\include\utility(604,42): message : Conversion from integral type to pointer type requires reinterpret_cast, C-style cast or function-style cast
-4>C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29910\include\memory(3423): message : see reference to function template instantiation '_Ty *std::exchange<_Ty2,int>(_Ty &,_Other &&) noexcept(false)' being compiled
-4>        with
-4>        [
-4>            _Ty=std::_Facet_base *,
-4>            _Ty2=std::_Facet_base *,
-4>            _Other=int
-4>        ]
-\endverbatim
-\n Da ja G__BpLib.cxx von Root erzeugt wird, kann ich da sowieso kaum was machen.
-Ähnliche Fehler treten aber auch an vielen anderen Stellen auf. Die Dokumentation zu
-[Compiler Error C2440]
-(https://docs.microsoft.com/en-us/cpp/error-messages/compiler-errors-1/compiler-error-c2440?view=msvc-160)
-listete viele Möglichkeiten auf. Am wahrscheinlichsten scheint mir geht es um das
-=0 Setzen eines Pointers zu einem Objekt ohne Cast. 
-\n Im Moment sehe ich keinen anderen Ausweg, als mit VS 2017 zu arbeiten.
-\n 15.03.21: In [C2440 error appears after update MVS 2017 to Version 15.9.11]
-(https://social.msdn.microsoft.com/Forums/en-US/f8e2f0cb-316b-42cc-9b1c-e46e03a7efd5/c2440-error-appears-after-update-mvs-2017-to-version-15911)
-wird das Setzen der Compiler-Option /Zc:strictStrings- diskutiert => Ausprobieren!
-\n 16.03.21: Es könnte an der falschen Verwendung von 
-string join(const string& sep=" ",int from=-1,int to=-1); aus der Klasse BpStrVc
-liegen.
-\n 17.03.21: BpStr::join() ist tatsächlich die Ursache gewesen für Fehler in 
-RmLib::TblB und RmLib::Scan. Nachdem ich auch aus BpLib einige Klassen entfernt habe
-(alle TODBC..., BpIkEw, RtEw,...) blieb in der Release-Variante nur noch 
-G__BpLib.cxx, das nur mit RtMf immerhin aus über 1000 Zeilen besteht. Da habe ich 
-keine Chance, die Fehler zu finden. Außerdem treten in der Debug-Variante jede Menge
-weitere Fehler auf.
-\n 03.04.21: Vielleicht könnte ich ja statt des Signal/Slot Mechanismus mit Callback
-Funktions arbeiten, da ich es ja mit recht einfachen Beziehungen zu tun haben 
-dürfte. Dann könnte ich auf die Dictionaries G__XXX.cxx verzichten. Dazu muesste 
-ich mich aber erst mal damit beschäftigen: [Callback Functions Tutorial]
-(https://www.codeguru.com/cpp/cpp/cpp_mfc/callbacks/article.php/c10557/Callback-Functions-Tutorial.htm).
-
-<!-- \subsection BsTdRt6 Root6 und Visual Studio -->
-### Root6 und Visual Studio
-- 03.06.21: root_v6.24.00 enthält nicht mehr den Vermerk 'preview'. Trotzdem
-gelingt es mir nicht, ein Dictionary zu erzeugen. Es gibt aber den Hinweis, dass 
-exakt die gleiche VS-Version benutzt werden soll, wie für die Erzeugung der 
-Installations-Exe verwendet. Also wahrscheinlich nicht nur VS 2019, sondern auch 
-noch die Version (16.10.0 bei mir aktuell). Da ich keine früheren Versionen 
-installieren kann (geht offenbar nicht für Community), kann ich diese Forderung 
-nicht erfüllen. Aber auch eine Installation vom Source Code ausgehen erzeugt nur
-ca. 2/3 der vorhandenen Projekte. Die restlichen scheitern offenbar auch an der
-Erzeugung der entsprechenden Dictionaries (siehe 
-C:\\Users\\User\\ROOTB\\Output-Build.txt für das Protokoll). 
-- Der Signal/Slot Mechanismus basiert in Root auf den Dictionaries. Ich hatte in
-TQObject.h/cxx und TqConnection.h/cxx Ausdrucke eingebaut, um zu versuchen, 
-Signal/Slot auch ohne Dictionary zu installieren. Endgültig gescheitert bin ich
-in TQSlot::TQSlot(const char *class_name, const char *funcname) mit
-'Error in <TClingCallFunc::SetFuncProto>: Class info is invalid!'. 
-- Als Ersatz sollte es möglich sein, eine der vielen Signal/Slot-Bibliotheken zu
-benutzen. Eine Auswahl kann man z.B. in [Testing C++ signal-slot libraries]
-(https://julienjorge.medium.com/testing-c-signal-slot-libraries-1994eb120826) finden.
-Am einfachsten wäre vielleicht die Verwendung von Boost: 
-[Chapter 36. Boost.Signals2]
-(https://www.boost.org/doc/libs/1_76_0/doc/html/signals2.html). Das Problem ist nur,
-dass die Signale neu definiert werden müssen. Das sollte möglich sein, da die 
-Root-Signale virtual sind. Es müssten also Ableitungen von allen Klassen gemacht
-werden, deren Signale verwendet werden sollen. Andererseits scheint es die
-Möglichkeit zu geben, das alles außerhalb zu machen: [Connection Management]
-(https://www.boost.org/doc/libs/1_76_0/doc/html/signals2/tutorial.html#id-1.3.37.4.6).
-Das sieht aber (als Einstieg) recht kompliziert aus. Hilfreich vielleicht auch
-[The Boost C++ Libraries](https://theboostcpplibraries.com/), insbesondere
-[Chapter 67. Boost.Signals2](https://theboostcpplibraries.com/boost.signals2).
-- [Complete example using Boost::Signals for C++ Eventing]
-(https://stackoverflow.com/questions/768351/complete-example-using-boostsignals-for-c-eventing).
-- Mit Qt geht es offenbar. Die betroffenen Klassen müssen abgeleitet werden mit
-public QObject und die verwendeten Signale und Slots neu definiert werden.
-- 10.06.21: Es geht auch, indem die Connect()-Aufrufe durch direkte Aufrufe der 
-Slots in den Signal-Methoden entsprechend abgeleiteter Klassen ersetzt. Das ist
-auch praktikabel bei der überschaubaren Menge an Verbindungen.
-- 15.06.21: Die Ursache für den ganzen Ärger scheint an Python zu liegen. Das wird
-offenbar benötigt. In cmake-gui kommt beim Konfigurieren von 
-C:/Prog/root_v6.24.00/root-6.24.00.source die Ausschrift:
-\verbatim
-Looking for Python
-Could NOT find Python3 (missing: Python3_NumPy_INCLUDE_DIRS NumPy) (found version "3.9.5")
-Could NOT find Python2 (missing: Python2_EXECUTABLE Python2_LIBRARIES Python2_INCLUDE_DIRS Python2_NumPy_INCLUDE_DIRS Interpreter Development NumPy Development.Module Development.Embed) 
-    Reason given by package: 
-        Interpreter: Wrong major version for the interpreter "C:/Prog/Python3/python.exe"
-\endverbatim
-- 16.06.21: Wenn man mit dem NuGet Manager mit Find-Package Python sucht, dann 
-werden recht viele Packete angezeigt. Wenn man mit NuGet herunterlädt, dann wird das 
-Paket direkt in das Projekt eingebunden. Um das via cmake zu machen gibt es
-[VS_PACKAGE_REFERENCES](https://cmake.org/cmake/help/latest/prop_tgt/VS_PACKAGE_REFERENCES.html).
-Bezogen auf die Installation von Root6 müsste ich also die betroffenen Targets 
-finden und die CMakeList.txt Files ändern. Das ist also auch kein gangbarer Weg!
-\n 26.07.21: Ich kämpfe weiter mit der Installation von Python. Es fehlt das 
-NumPy Paket: [How to Install NumPy](https://phoenixnap.com/kb/install-numpy).
-Ergebnis: Successfully installed numpy-1.21.1. Zu finden ist das in ...\\Lib\\site-packages.
-
-<!-- \subsubsection BsTdRt6_26_02 Root6_26_02 -->
-#### Root6_26_02
-10.05.22: In dieser Root-Version gibt es erstmalig eine 64-Bit Version für VS2022, aber nur als Release-
-(und nicht auch als Debug-) Version. Da ich in den Cmake-Files die Variable $(Configuration) benutze, habe
-ich das Verzeichnis Debug durch einen Link ersetzt (mklink /D Debug Release), damit z.B. auch das beim 
-Compilieren benötigte Programm bindexplib.exe gefunden wird. Siehe z.B. 
-[The Complete Guide to Creating Symbolic Links (aka Symlinks) on Windows](https://www.howtogeek.com/howto/16226/complete-guide-to-symbolic-links-symlinks-on-windows-or-linux/).
-\n Beim Compilieren gibt es Schwierigkeiten mit Qt, da die 32-Bit Variante installiert ist. Um (zunächst) eine
-Neuinstallation zu vermeiden, wird TqLib erst mal nicht mehr benutzt.
-\n Auch die Umstellung von [TA-Lib : Technical Analysis Library](https://ta-lib.org/d_api/d_api.html) war recht
-aufwendig. Nach der Vorlage von [TA-lib built with CMake - GitHub](https://github.com/timkpaine/ta-lib)
-wurde eine Library in C:/Prog/Talib "vor Ort" mit VS2022 hergestellt.
-\n 12.08.22: Dass die Debug Variante nicht gestartet werden konnte (Anwendungsfehler), hatte ich damals auf die 
-fehlende Debug-Variante von Root geschoben. Aber! siehe folgendes Kapitel.
-
-<!-- \subsubsection BsTdRt6_26_06 Root6_26_06 -->
-#### Root6_26_06
-12.08.22: Das ist die erste Version für Visual Studio 2022 mit Release- und Debug Version, allerdings wieder nur Win32.
-Und auch hier lässt sich die Debug-Variante von RmM.exe nicht starten. Um den Fehler einzugrenzen, könnte
-vielleicht wieder ein RtM.exe hilfreich sein, bei dem man es nur (bis auf BmLib.dll) mit reinem C++ Code zu
-tun hätte.
-\n Und diese Hoffnung hat sich nicht erfüllt: Die Debug Variante von RtM lässt sich nicht starten!
-
+[C++ ODBC example application accesses a SQL database](https://docs.microsoft.com/en-us/sql/connect/odbc/cpp-code-example-app-connect-access-sql-db?view=sql-server-ver15)
+macht allerdings keinen sehr einladenden Eindruck.

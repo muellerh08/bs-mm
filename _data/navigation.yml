@@ -1,8 +1,8 @@
 main:
-  - title: "Home"
-    url: index
+  #- title: "Home"
+  #  url: index
   - title: "Dokumentation"
-    url: /docs/install
+    url: /docs/min-mis
   - title: "Themenseiten"
     url: /thems/thems
   - title: "Eingaben"
@@ -17,7 +17,7 @@ main:
     url: /about/
 
 doc_nav:
-  - title: "Docu"
+  - title: "Documentation"
     children:
       - title: "BsTd"
         url: /docs/bstd
@@ -29,8 +29,10 @@ doc_nav:
         url: /docs/misc
       - title: "Ursprüngliches ReadmeBp"
         url: /docs/readme-bp
-      - title: "Installation"        
-        url: /docs/install/ 
+      - title: "Minimal-mistakes"        
+        url: /docs/min-mis
+      - title: "Surge"
+        url: /docs/surge
       - title: "Projekte"
         url: /Projekte/
 thems:
@@ -57,7 +59,7 @@ thems:
 incal:         
   - title: "Eingaben"
     children:
-      - title: "Eingaben"
+      - title: "Eingaben zu Rechnungen"
         url: /incal/incal
       - title: "DaBa: Handling Datenbasen"
         url: incal/daba
